@@ -400,6 +400,7 @@ namespace platf {
     constexpr caps_t host_session_state = 0x800;  // Session lock state updates (0x550E)
     constexpr caps_t bitrate_callback = 0x4000;  // Host-to-client runtime bitrate updates (0x5506); registry: LI_FF_BITRATE_CALLBACK
     constexpr caps_t endpoint_auto_refresh = 0x8000;  // Authenticated UDP endpoint migration v1
+    constexpr caps_t cursor_state = 0x400;  // Cursor protocol v2: cursor state and shapes on 0x5509 version 2
   };  // namespace platform_caps
 
   struct gamepad_state_t {

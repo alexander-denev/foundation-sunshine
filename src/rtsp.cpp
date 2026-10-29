@@ -41,6 +41,7 @@ extern "C" {
 #include "ds5/control_extension.h"
 #include "globals.h"
 #include "hdr/dynamic_hdr_selection.h"
+#include "host_cursor.h"
 #include "input.h"
 #include "logging.h"
 #include "network.h"
@@ -1260,6 +1261,10 @@ namespace rtsp_stream {
       }
       if (cursor_channel::producer_available()) {
         caps |= platf::platform_caps::cursor_shape;
+      }
+      // Cursor protocol v2 reads the cursor itself, so it works with every capture backend.
+      if (host_cursor::tracker::supported()) {
+        caps |= platf::platform_caps::cursor_state;
       }
       if (text_context::bridge_t::instance().gui_alive()) {
         caps |= platf::platform_caps::remote_text_context;
